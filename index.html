@@ -39,32 +39,55 @@ header {
 h1 {
   margin: 0;
 }
-
 nav {
-  background-color: #FF9933; /* Lighter orange for navigation background */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  z-index: 9999;
+}
+
+.menu-icon {
+  display: inline-block;
+  cursor: pointer;
   padding: 10px;
-  text-align: center;
-  animation-name: fade-in;
-  animation-duration: 1s;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
 }
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.menu-icon span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin-bottom: 5px;
+  transition: transform 0.3s ease;
 }
 
-nav a {
+.menu {
+  display: none;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 60px;
+}
+
+.menu li {
+  margin-bottom: 10px;
+}
+
+.menu a {
   color: #fff;
   text-decoration: none;
-  padding: 10px;
 }
 
+.menu a:hover {
+  text-decoration: underline;
+}
+
+#menu-toggle:checked ~ .menu {
+  display: block;
+}
 main {
   max-width: 960px;
   margin: 20px auto;
@@ -320,12 +343,20 @@ footer {
   </header>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-    <a href="Profile.pdf" download="your-cv.pdf">Download CV</a>
-  </nav>
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="menu-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+  <ul class="menu">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="Profile.pdf" download="your-cv.pdf">Download CV</a></li>
+  </ul>
+</nav>
 
   <main>
     <section id="about">
