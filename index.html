@@ -50,6 +50,19 @@ nav {
   z-index: 9999;
 }
 
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  z-index: 9999;
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+}
+
 .menu-icon {
   display: inline-block;
   cursor: pointer;
@@ -87,6 +100,10 @@ nav {
 
 #menu-toggle:checked ~ .menu {
   display: block;
+}
+
+#menu-toggle:checked ~ nav {
+  transform: translateX(0);
 }
 main {
   max-width: 960px;
