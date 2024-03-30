@@ -3,20 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MY PORTFOLIO WEBSITE</title>
+  <title>jackson.khuto</title>
   <link rel="stylesheet" href="styles.css">
   <style>
     /* Styles for the portfolio website */
     body {
-font-family: Arial, sans-serif;
-margin: 0;
-padding: 0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FFA500; /* Orange background color */
 }
+
 header {
-  background-color: #333;
+  background-color: #FF6600; /* Darker orange for header background */
   color: #fff;
   padding: 20px;
   text-align: center;
+  animation-name: slide-down;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 h1 {
@@ -24,9 +41,22 @@ h1 {
 }
 
 nav {
-  background-color: #555;
+  background-color: #FF9933; /* Lighter orange for navigation background */
   padding: 10px;
   text-align: center;
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 nav a {
@@ -48,6 +78,21 @@ section {
 .about-me {
   display: flex;
   align-items: center;
+  animation-name: scale-up;
+  animation-duration: 1s;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .about-me img {
@@ -69,241 +114,156 @@ section {
     transform: rotate(360deg);
   }
 }
+
 #skills .skills {
-display: flex;
-justify-content: flex-start;
-flex-wrap: wrap;
-padding-left: 0;
-margin-top: 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-top: 0;
 }
 
 #skills .skills li {
-background-color: #f4f4f4;
-color: #333;
-padding: 10px;
-margin: 5px;
-list-style: none;
-border-radius: 5px;
-}
-
-#projects {
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-}
-
-#projects h2 {
-margin-left: 0;
-}
-
-#projects .projects {
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-}
-
-#projects .project {
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-margin-bottom: 30px;
-}
-
-#projects .project img {
-width: 300px;
-height: auto;
-border-radius: 5px;
-cursor: pointer;
-}
-
-#projects .project-details {
-text-align: left;
-margin-top: 10px;
-}
-
-#projects .project-details h3 {
-font-size: 20px;
-margin-bottom: 5px;
-}
-
-#projects .project-details p {
-font-size: 16px;
-color: #888;
-}
-
-#projects {
-opacity: 0;
-animation-name: fade-in;
-animation-duration: 1s;
-animation-fill-mode: forwards;
+  background-color: #FFDAB3; /* Lighter orange for skills background */
+  color: #333;
+  padding: 10px;
+  margin: 5px;
+  list-style: none;
+  border-radius: 5px;
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes fade-in {
-0% {
-opacity: 0;
-transform: translateY(20px);
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
-100% {
-opacity: 1;
-transform: translateY(0);
+
+#projects {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  opacity: 0;
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+#projects h2 {
+  margin-left: 0;
+}
+
+#projects .projects {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#projects .project {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+#projects .project img {
+  width: 300px;
+  height: auto;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#projects .project-details {
+  text-align: left;
+  margin-top: 10px;
+  color: #FF6600; /* Darker orange for project details */
+}
+
+#projects .project-details h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #333; /* Dark text color for project titles */
+}
+
+#projects .project-details p {
+  font-size: 16px;
+  color:#888;
+}
+
 #contact .contact-form {
-display: flex;
-flex-direction: column;
-align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 #contact .contact-form label {
-margin-bottom: 10px;
+  margin-bottom: 10px;
+  color: #FF6600; /* Darker orange for contact form labels */
 }
 
 #contact .contact-form input[type="text"],
 #contact .contact-form input[type="email"],
 #contact .contact-form textarea {
-width: 100%;
-padding: 10px;
-font-size: 16px;
-border-radius: 5px;
-border: 1px solid #ccc;
-resize: vertical;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: vertical;
 }
 
 #contact .contact-form button[type="submit"] {
-padding: 10px 20px;
-font-size: 16px;
-background-color: #4CAF50;
-color: white;
-border: none;
-border-radius: 5px;
-cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #FF6600; /* Darker orange for submit button background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-Copy
-.contact-form button:hover {
-  background-color: #555;
+#contact .contact-form button:hover {
+  background-color: #FF9933; /* Lighter orange for submit button hover background */
 }
-
-
 
 .social-links {
-text-align: center;
-margin-top: 40px;
+  text-align: center;
+  margin-top: 40px;
 }
 
 .social-links a {
-display: inline-block;
-margin-right: 10px;
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .social-links img {
-width: 24px;
-height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 footer {
-background-color: #f1f1f1;
-padding: 20px;
-text-align: center;
-font-size: 12px;
-}
-
-css
-Copy
-.logo {
-position: absolute;
-top: 10px;
-left: 10px;
-width: 80px; /* Adjust the width as per your logo size */
-height: auto;
-}
-
-.logo {
-position: absolute;
-top: 10px;
-left: 10px;
-width: 80px;
-height: 80px;
-animation-name: logo-animation;
-animation-duration: 2s;
-animation-timing-function: ease-in-out;
-animation-iteration-count: 1;
-}
-
-@keyframes logo-animation {
-0% {
-transform: rotate(0deg);
-}
-100% {
-transform: rotate(360deg);
-}
-}
-header {
-animation-name: slide-down;
-animation-duration: 1s;
-animation-delay: 0.5s;
-animation-fill-mode: forwards;
-}
-
-@keyframes slide-down {
-0% {
-transform: translateY(-100%);
-opacity: 0;
-}
-100% {
-transform: translateY(0);
-opacity: 1;
-}
-}
-nav {
-animation-name: fade-in;
-animation-duration: 1s;
-animation-delay: 1s;
-animation-fill-mode: forwards;
-}
-
-@keyframes fade-in {
-0% {
-opacity: 0;
-}
-100% {
-opacity: 1;
-}
-}
-
-.about-me {
-animation-name: scale-up;
-animation-duration: 1s;
-animation-delay: 1.5s;
-animation-fill-mode: forwards;
-}
-
-@keyframes scale-up {
-0% {
-transform: scale(0);
-opacity: 0;
-}
-100% {
-transform: scale(1);
-opacity: 1;
-}
-}
-
-#skills .skills li {
-animation-name: fade-in;
-animation-duration: 0.5s;
-animation-fill-mode: forwards;
-}
-
-@keyframes fade-in {
-0% {
-opacity: 0;
-transform: translateX(-20px);
-}
-100% {
-opacity: 1;
-transform: translateX(0);
-}
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+  font-size: 12px;
 }
 </style>
   </style>
@@ -316,7 +276,7 @@ transform: translateX(0);
         <img src="logo.jpg" alt="Logo" class="logo">
     </header>
   <header>
-    <h1>MY PORTFOLIO WEBSITE</h1>
+    <h1>JACKSON KHUTO</h1>
   </header>
 
   <nav>
