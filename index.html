@@ -39,72 +39,32 @@ header {
 h1 {
   margin: 0;
 }
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px;
-  background-color: #333;
-  color: #fff;
-  z-index: 9999;
-}
 
 nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px;
-  background-color: #333;
-  color: #fff;
-  z-index: 9999;
-  transition: transform 0.3s ease;
-  transform: translateX(-100%);
+  background-color: #FF9933; /* Lighter orange for navigation background */
+  padding: 10px;
+  text-align: center;
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 }
 
-.menu-icon {
-  display: inline-block;
-  cursor: pointer;
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
   padding: 10px;
 }
 
-.menu-icon span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: #fff;
-  margin-bottom: 5px;
-  transition: transform 0.3s ease;
-}
-
-.menu {
-  display: none;
-  list-style-type: none;
-  padding: 0;
-  margin-top: 60px;
-}
-
-.menu li {
-  margin-bottom: 10px;
-}
-
-.menu a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.menu a:hover {
-  text-decoration: underline;
-}
-
-#menu-toggle:checked ~ .menu {
-  display: block;
-}
-
-#menu-toggle:checked ~ nav {
-  transform: translateX(0);
-}
 main {
   max-width: 960px;
   margin: 20px auto;
@@ -117,6 +77,7 @@ section {
 
 .about-me {
   display: flex;
+  flex-direction: column;
   align-items: center;
   animation-name: scale-up;
   animation-duration: 1s;
@@ -245,7 +206,14 @@ section {
 
 #projects .project-details p {
   font-size: 16px;
-  color:#888;
+  color: #888;
+}
+
+.project-container {
+  background-color: #FFF; /* Set the desired background color for the container */
+  border: 1px solid #E0E0E0; /* Set the desired border style */
+  border-radius: 5px; /* Set the desired border radius */
+  padding: 20px;
 }
 
 #contact .contact-form {
@@ -360,30 +328,25 @@ footer {
   </header>
 
   <nav>
-  <input type="checkbox" id="menu-toggle">
-  <label for="menu-toggle" class="menu-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </label>
-  <ul class="menu">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="Profile.pdf" download="your-cv.pdf">Download CV</a></li>
-  </ul>
-</nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="Profile.pdf" download="your-cv.pdf">Download CV</a>
+  </nav>
 
   <main>
     <section id="about">
-        <h2>About Me</h2>
-        <div class="about-me">
+      <h2></h2>
+      <div class="about-me">
+        <div class="image-container">
           <img src="profile2.jpg" alt="Profile Picture">
+        </div>
+        <div class="description-container">
           <p>Hello, I'm Jackson Khuto, a final year BSc IT student specializing in Computer Science and Information Systems. With a strong passion for technology, I have acquired a solid foundation in programming languages like HTML, CSS, JavaScript, and Java. I thrive in collaborative environments and possess problem-solving skills, a logical mindset, and a drive for continuous learning. When not coding, I enjoy exploring new technologies, reading tech blogs, and engaging in outdoor activities. I'm excited to contribute to innovative projects and embark on a successful career in the technology field.</p>
         </div>
-      </section>
-
+      </div>
+    </section>
     <section id="skills">
       <h2>Skills</h2>
       <ul class="skills">
@@ -402,32 +365,37 @@ footer {
           <h2>Projects</h2>
           <div class="projects">
             <div class="project">
-              <div class="project-details">
-                <h3>Library Management System</h3>
-                <p>The Library Management System project involves creating a comprehensive software solution to manage the operations of a library.This is developed using javaFX in eclipse IDE. It aims to streamline the processes of book cataloging, borrowing and returning books, managing user accounts, and generating reports. The system will provide an efficient and user-friendly interface for librarians and library patrons to interact with.</p>
+              <div class="project-container">
+                <div class="project-details">
+                  <h3>Library Management System</h3>
+                  <p>The Library Management System project involves creating a comprehensive software solution to manage the operations of a library. This is developed using JavaFX in Eclipse IDE. It aims to streamline the processes of book cataloging, borrowing and returning books, managing user accounts, and generating reports. The system will provide an efficient and user-friendly interface for librarians and library patrons to interact with.</p>
+                </div>
+                <a href="project1.html">
+                  <img src="project1.jpg" alt="Project 1">
+                </a>
               </div>
-              <a href="project1.html">
-                <img src="project1.jpg" alt="Project 1">
-              </a>
             </div>
             <div class="project">
-              <div class="project-details">
-                <h3>Online Marketplace</h3>
-                <p>The Online Marketplace project aims to create a web-based platform where users can buy and sell various products. It provides a marketplace for sellers to showcase their products and buyers to browse, search, and purchase items. The application facilitates secure transactions, order management, and user ratings/reviews.It will utilize the MERN stack, which consists of MongoDB, Express.js, React, and Node.js.</p>
-                
+              <div class="project-container">
+                <div class="project-details">
+                  <h3>Online Marketplace</h3>
+                  <p>The Online Marketplace project aims to create a web-based platform where users can buy and sell various products. It provides a marketplace for sellers to showcase their products and buyers to browse, search, and purchase items. The application facilitates secure transactions, order management, and user ratings/reviews. It will utilize the MERN stack, which consists of MongoDB, Express.js, React, and Node.js.</p>
+                </div>
+                <a href="project2.html">
+                  <img src="project2.jpg" alt="Project 2">
+                </a>
               </div>
-              <a href="project2.html">
-                <img src="project2.jpg" alt="Project 2">
-              </a>
             </div>
             <div class="project">
-              <div class="project-details">
-                <h3>Recipe Sharing Application</h3>
-                <p>The Recipe Sharing Application is a web-based platform that allows users to discover, share, and save their favorite recipes. The application provides a user-friendly interface for browsing recipes, creating and managing personal recipe collections, and interacting with a community of food enthusiasts. It aims to simplify the process of finding and organizing recipes, making it easier for users to explore new culinary creations. It will utilize the MERN stack, which consists of MongoDB, Express.js, React, and Node.js.</p>
+              <div class="project-container">
+                <div class="project-details">
+                  <h3>Recipe Sharing Application</h3>
+                  <p>The Recipe Sharing Application is a web-based platform that allows users to discover, share, and save their favorite recipes. The application provides a user-friendly interface for browsing recipes, creating and managing personal recipe collections, and interacting with a community of food enthusiasts. It aims to simplify the process of finding and organizing recipes, making it easier for users to explore new culinary creations. It will utilize the MERN stack, which consists of MongoDB, Express.js, React, and Node.js.</p>
+                </div>
+                <a href="project3.html">
+                  <img src="project3.jpg" alt="Project 3">
+                </a>
               </div>
-              <a href="project3.html">
-                <img src="project3.jpg" alt="Project 3">
-              </a>
             </div>
           </div>
         </div>
