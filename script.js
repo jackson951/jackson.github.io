@@ -1,90 +1,39 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
+const form=document.querySelector("form");
+
+const fullname=document.getElementById("name");
+const email=document.getElementById("email");
+const subject=document.getElementById("subject");
+const message=document.getElementById("message");
+
+function sendEmail(){
+
+  const bodyMessage=`Full name: ${fullname.value}<br> Email: ${email.value}<br> Message: ${message.value}<br>`;
+  Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "jacksonkhuto591@gmail.com",
+    Password : "684959A149D67F6B9A4BA9CF53BB95CE3101",
+    To : "jacksonkhuto591@gmail.com",
+    From : "jacksonkhuto591@gmail.com",
+    Subject : subject.value,
+    Body : bodyMessage
+}).then(
+  message => {
+    if(message=="OK"){
+      Swal.fire({
+        title: "Success!",
+        text: "Message Sent Succesfully!",
+        icon: "success"
       });
-      closeMenu();
-    });
-  });
-
-  // Hamburger menu toggle
-  const hamburger = document.querySelector('.hamburger');
-  const sideMenu = document.querySelector('.side-menu');
-
-  hamburger.addEventListener('click', function() {
-    sideMenu.classList.toggle('open');
-
-    if (sideMenu.classList.contains('open')) {
-      sideMenu.style.left = '0'; // Slide the menu in from the left
-    } else {
-      sideMenu.style.left = '-300px'; // Hide the menu by sliding it out to the left
     }
-  });
-
-  // Close the menu
-  function closeMenu() {
-    sideMenu.classList.remove('open');
-    sideMenu.style.left = '-300px';
   }
+);
+  
+}
 
-  // Add event listeners to menu items
-  const menuItems = document.querySelectorAll('.side-menu a');
+form.addEventListener("submit",(e)=>{
+   e.preventDefault();
 
-  menuItems.forEach(item => {
-    item.addEventListener('click', closeMenu);
-  });
-
-  // Form validation
-  const form = document.querySelector('.contact-form');
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    // Perform validation
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const messageInput = document.getElementById('message');
-
-    if (nameInput.value.trim() === '') {
-      alert('Please enter your name.');
-      nameInput.focus();
-      return;
-    }
-
-    if (emailInput.value.trim() === '') {
-      alert('Please enter your email.');
-      emailInput.focus();
-      return;
-    }
-
-    if (messageInput.value.trim() === '') {
-      alert('Please enter a message.');
-      messageInput.focus();
-      return;
-    }
-
-    // Form submission code...
-    // You can send the form data to the server or perform other actions here
-
-    // Clear form inputs after submission
-    nameInput.value = '';
-    emailInput.value = '';
-    messageInput.value = '';
-
-    alert('Form submitted successfully!');
-  });
-
-  // Image slider using Swiper library
-  var swiper = new Swiper('.swiper-container', {
-    // Customize the options as per your requirements
-    slidesPerView: 1,
-    spaceBetween: 10,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  });
+   sendEmail();
 });
+
+
