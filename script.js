@@ -32,6 +32,7 @@ form.addEventListener("submit",(e)=>{
    e.preventDefault();
 
    sendEmail();
+   form.reset();//line to be changed
 });
 
 
