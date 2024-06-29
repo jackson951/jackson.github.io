@@ -4,6 +4,7 @@
 
 body {
   font-family: Arial, sans-serif;
+  background-color:linear-gradient(to right,#e2e2e2,#c9d6ff),/* Add smooth transitioning in the background */
   margin: 0;
   padding: 0;
 }
